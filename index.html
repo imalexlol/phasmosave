@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>PhasmoSave</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+	<script src="popper.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<link rel="stylesheet" href="jquery-ui.min.css" />
+	<meta name="description" content="PhasmoSave is a web tool which allows you to view and modify your game save data for Phasmophobia. PhasmoSave is not in any way affiliated with Phasmophobia.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="phasmophobia, game, save, edit, modify, 2022, ghosts, vr, spooky, spoopy, data, txt">
+	<meta name="author" content="Cain K.">
+	<link rel="stylesheet" href="custom.css" />
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#"><b>PhasmoSave v1.2 RESTORED</b></a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Created by Cain#4718</a>
+			</li>
+		</ul>
+	</nav>
+	<style type="text/css">
+		.hidden-box {
+			display: none;
+		}
+	</style>
+	<div class="disclaimer">
+		Please note that PhasmoSave is in no way affiliated, or partnered with the game 'Phasmophobia'. All changes to
+		your own files are at your own discretion and PhasmoSave cannot be held responsible for any damage to your
+		files.
+	</div>
+	<div class="container">
+		<div class="jumbotron"
+			style="border-top-left-radius: 0px; border-top-right-radius: 0px; box-shadow: 2px 4px 5px #000">
+			<div class="alert alert-warning">
+				<b>NOTE:</b> If anyone / Cain (creator of this tool) would like me to take down this tool, please DM me on discord. <b>alex lmao#4200</b>
+			</div>
+			<div class="alert alert-warning">
+				<b>NOTE:</b> Phasmophobia has changed how Game Saves are stored now (end of March 2021). You can no
+				longer load any new format gamesaves into PhasmoSave. However, there is a way to continue using
+				PhasmoSave. <a toggle="readBelow" href="#">Read below.</a>
+				<div class="hidden-box" toggle="readBelow">
+					You will need to download an older format gamesave (.txt), <a href="saveData.txt" download="saveData.txt">you can
+						download an older version here</a>.<br><br>
+					Make sure you delete the saveData.es3 and saveData.es3.tmp (if applicable) inside your Phasmophobia
+					folder as the game will convert your newly-edited file to the format that Phasmophobia wants. <b>If
+						you don't delete these first, the game will ignore your new .txt.</b><br>
+					If no changes are taking affect, make sure you disable Steam Cloud first on Phasmophobia. You can do
+					this by right clicking on Phasmophobia, clicking properties, and unchecking "Keep game saves in the
+					cloud for Phasmophobia".<br>
+					<hr>
+					<i>If you continue to have issues, my Discord is at the top right.</i>
+				</div>
+			</div>
+			<div class="page-one">
+				<b>Select your saveData.txt file below, located in
+					<b><code>%userprofile%\appdata\locallow\Kinetic Games\Phasmophobia</code></b> to open it and modify
+					your player preferences. You can also drag the saveData.txt onto the "Choose File" box below.</b>
+				<form id="submitSaveData" onsubmit="if (!window.__cfRLUnblockHandlers) return false; return false;">
+					<input type="file" accept=".txt" name="saveData" required />
+				</form>
+				<div class="savedata-error">
+					<div class="alert alert-danger">We were unable to parse your SaveData information. Please make sure
+						that your game is set to <b>English</b>, and then re-play the tutorial before retrying.</div>
+				</div>
+			</div>
+			<div class="page-two" style="display: none">
+				<div class="row">
+					<form id="modifySaveData" onsubmit="if (!window.__cfRLUnblockHandlers) return false; return false;"	style="width: 100%">
+					</form>
+					<div class="col-md-4" style="margin-top: 10px">
+						<button class="btn btn-info" id="backBtn">Back to Beginning</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="tool.js"></script>
+<script>
+	$("a[toggle]").on("click", function() {
+		let elementToToggle = $(this).attr("toggle");
+		$(this).remove();
+		$("div[toggle='" + elementToToggle + "']").show("slide", {direction: "up"});
+	});
+</script>
+
+</html>
